@@ -1,4 +1,4 @@
-package starter;
+package caffinateme;
 
 import cucumber.api.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
