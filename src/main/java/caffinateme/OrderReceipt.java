@@ -13,6 +13,18 @@ public class OrderReceipt {
         this.product = product;
     }
 
+    public long getCustomerId() {
+        return customerId;
+    }
+
+    public int getQuanity() {
+        return quanity;
+    }
+
+    public String getProduct() {
+        return product;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

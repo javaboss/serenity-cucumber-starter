@@ -9,6 +9,9 @@ import net.thucydides.core.annotations.Steps;
 public class Customer extends ScenarioActor {
     private long customerId;
 
+    @Steps(shared = true)
+    CoffeeOrdersClient coffeeOrders;
+
     public void hasACustomerIdOf(long customerId) {
         this.customerId = customerId;
     }
@@ -19,6 +22,6 @@ public class Customer extends ScenarioActor {
 
     @Step("#actor places an order for {0} {1}")
     public OrderReceipt placesAnOrderFor(int quantity, String product) {
-        return null;
+        return coffeeOrders.placeOrder(customerId, quantity, product);
     }
 }
