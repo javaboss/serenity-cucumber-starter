@@ -13,25 +13,17 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 
 public class OrderACoffeeStepDefinitions {
 
-    @Steps
-    UserRegistrationClient userRegistrations;
-
-    @Steps
-    Customer cathy;
+    @Steps (shared = true)
+    Customer customer;
 
     @Steps
     Barista barry;
 
-    @Given("Cathy haws a Caffinate-Me account")
-    public void userHasACaffinateMeAccount() {
-        userRegistrations.registerUser(cathy);
-    }
-
     OrderReceipt orderReceipt;
 
-    @When("^s?he orders a (.*)$")
+    @When("^(?:.*) (?:orders|has ordered) an? (.*)$")
     public void sheOrdersA(String order) throws Throwable {
-        orderReceipt = cathy.placesAnOrderFor(1, order);
+        orderReceipt = customer.placesAnOrderFor(1, order);
     }
 
     @Then("^Barry should receive the order$")
