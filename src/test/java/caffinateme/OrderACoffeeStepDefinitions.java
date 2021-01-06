@@ -36,7 +36,7 @@ public class OrderACoffeeStepDefinitions {
         assertThat(barry.pendingOrders()).contains(Order.matching(orderReceipt));
     }
 
-    @Given("^Sarah has ordered: (.*)$")
+    @Given("^Sarah has ordered:$")
     public void sarahHasOrdered(List<String> orders) throws Throwable {
         System.out.println("Orders: " + orders);
     }
