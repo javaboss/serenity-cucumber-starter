@@ -18,4 +18,9 @@ public class CoffeeOrdersClient {
     public List<Order> getOrders() {
         return new ArrayList<>(orders);
     }
+
+    public void updateCustomerEta(long customerId, int minutesAway) {
+        orders.stream().filter(order -> order.getCustomerId() == customerId)
+                .forEach(order -> order.updateETATo(minutesAway));
+    }
 }

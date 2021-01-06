@@ -1,6 +1,7 @@
 package caffinateme.steps;
 
 import caffinateme.OrderReceipt;
+import caffinateme.Urgency;
 
 import java.util.Objects;
 
@@ -8,6 +9,7 @@ public class Order {
     private final long customerId;
     private final int quantity;
     private final String product;
+    private int etaInMinutes;
 
     public Order(long customerId, int quantity, String product) {
         this.customerId = customerId;
@@ -18,11 +20,22 @@ public class Order {
     public static Order matching(OrderReceipt orderReceipt) {
         return new Order(orderReceipt.getCustomerId(), orderReceipt.getQuanity(),
                 orderReceipt.getProduct());
-
     }
 
     public OrderReceipt getReceipt() {
         return new OrderReceipt(customerId, quantity, product);
+    }
+
+    public long getCustomerId() {
+        return customerId;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public String getProduct() {
+        return product;
     }
 
     @Override
@@ -45,5 +58,14 @@ public class Order {
                 ", quantity=" + quantity +
                 ", product='" + product + '\'' +
                 '}';
+    }
+
+    public void updateETATo(int etaInMinutes) {
+
+        this.etaInMinutes = etaInMinutes;
+    }
+
+    public Urgency getUrgency() {
+        return null;
     }
 }
