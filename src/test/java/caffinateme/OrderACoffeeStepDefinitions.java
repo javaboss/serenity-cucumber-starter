@@ -10,6 +10,8 @@ import cucumber.api.java.en.When;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
 
+import java.util.List;
+
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
 public class OrderACoffeeStepDefinitions {
@@ -32,5 +34,10 @@ public class OrderACoffeeStepDefinitions {
     @Then("^Barry should receive the order$")
     public void barryShouldReceiveTheOrder() {
         assertThat(barry.pendingOrders()).contains(Order.matching(orderReceipt));
+    }
+
+    @Given("^Sarah has ordered: (.*)$")
+    public void sarahHasOrdered(List<String> orders) throws Throwable {
+        System.out.println("Orders: " + orders);
     }
 }
