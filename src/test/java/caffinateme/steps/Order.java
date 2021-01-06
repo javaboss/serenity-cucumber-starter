@@ -66,6 +66,8 @@ public class Order {
     }
 
     public Urgency getUrgency() {
-        return null;
+        if (etaInMinutes < 5) return Urgency.Urgent;
+        if (etaInMinutes <= 10) return Urgency.High;
+        return Urgency.Normal;
     }
 }
