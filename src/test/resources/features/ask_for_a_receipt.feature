@@ -5,6 +5,7 @@ Feature: Ask for a receipt
 
     Scenario: Order several items
       Given Sarah has ordered:
-    | large cappuccino |
-    | muffin           |
-    | espresso         |
+      | Quantity | Product          |
+      | 1        | large cappuccino |
+      | 2        | muffin           |
+      | 1        | espresso         |

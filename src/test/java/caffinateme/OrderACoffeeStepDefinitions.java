@@ -11,6 +11,7 @@ import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
@@ -37,7 +38,7 @@ public class OrderACoffeeStepDefinitions {
     }
 
     @Given("^Sarah has ordered:$")
-    public void sarahHasOrdered(List<String> orders) throws Throwable {
+    public void sarahHasOrdered(List<Map<String, String>> orders) throws Throwable {
         System.out.println("Orders: " + orders);
     }
 }
