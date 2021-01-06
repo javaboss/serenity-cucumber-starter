@@ -10,7 +10,7 @@ public class CoffeeOrdersClient {
 
     List<Order> orders = new ArrayList<>();
 
-    @Step
+    @Step("Place order for customer {0} for {1} x {2}")
     public OrderReceipt placeOrder(long customerId, int quantity, String product) {
         Order order = new Order(customerId, quantity, product);
         orders.add(order);
@@ -22,7 +22,7 @@ public class CoffeeOrdersClient {
         return new ArrayList<>(orders);
     }
 
-    @Step
+    @Step("Notify updated ETA for customer {0} who will arrive at the shop in {1} minutes")
     public void updateCustomerEta(long customerId, int minutesAway) {
         orders.stream().filter(order -> order.getCustomerId() == customerId)
                 .forEach(order -> order.updateETATo(minutesAway));
