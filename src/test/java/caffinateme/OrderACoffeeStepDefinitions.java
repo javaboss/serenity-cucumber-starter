@@ -40,5 +40,12 @@ public class OrderACoffeeStepDefinitions {
     @Given("^Sarah has ordered:$")
     public void sarahHasOrdered(List<Map<String, String>> orders) throws Throwable {
         System.out.println("Orders: " + orders);
+        orders.forEach(
+                order -> {
+                  String product = order.get("Product");
+                  Integer quantity = Integer.parseInt(order.get("Quantity"));
+                  customer.placesAnOrderFor(quantity, product);
+                }
+                );
     }
 }
