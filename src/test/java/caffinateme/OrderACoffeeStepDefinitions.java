@@ -47,4 +47,17 @@ public class OrderACoffeeStepDefinitions {
                 }
                 );
     }
+
+    Receipt receipt;
+    @When("^she asks for a receipt$")
+    public void sheAsksForAReceipt() {
+        receipt = customer.requestAReceipt();
+    }
+
+    @Then("^she should receive a receipt totalling:$")
+    public void sheShouldReceiveAReceiptTotalling(List<Receipt> expectedReceipts) throws Throwable {
+        Receipt expectedReceipt = expectedReceipts.get(0);
+
+        assertThat(receipt).isEqualToIgnoringNullFields(expectedReceipt);
+    }
 }

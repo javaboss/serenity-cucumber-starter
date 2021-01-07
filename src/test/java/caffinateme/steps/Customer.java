@@ -1,6 +1,7 @@
 package caffinateme.steps;
 
 import caffinateme.OrderReceipt;
+import caffinateme.Receipt;
 import cucumber.api.java.en.Given;
 import net.serenitybdd.core.steps.ScenarioActor;
 import net.thucydides.core.annotations.Step;
@@ -28,5 +29,10 @@ public class Customer extends ScenarioActor {
     @Step("#actor updates her ETA to {0}")
     public void updatesHerETATo(int minutesAway) {
         coffeeOrders.updateCustomerEta(customerId, minutesAway);
+    }
+
+    @Step("#actor requests a receipt")
+    public Receipt requestAReceipt() {
+        return null;
     }
 }
