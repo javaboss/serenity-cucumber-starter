@@ -33,6 +33,6 @@ public class Customer extends ScenarioActor {
 
     @Step("#actor requests a receipt")
     public Receipt requestAReceipt() {
-        return null;
+        return coffeeOrders.getReceiptFor(customerId);
     }
 }

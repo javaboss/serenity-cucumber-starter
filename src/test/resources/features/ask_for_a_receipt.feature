@@ -2,6 +2,11 @@ Feature: Ask for a receipt
 
   Background:
     Given Sarah has a Caffinate-Me account
+    And the following prices:
+      | product            | price |
+      | regular cappuccino | 1.90  |
+      | large cappuccino   | 2.25  |
+      | muffin             | 1.25  |
 
   Scenario: Order several items
     Given Sarah has ordered:

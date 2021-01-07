@@ -4,6 +4,7 @@ import caffinateme.steps.Barista;
 import caffinateme.steps.Customer;
 import caffinateme.steps.Order;
 import caffinateme.steps.UserRegistrationClient;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -24,6 +25,9 @@ public class OrderACoffeeStepDefinitions {
     Barista barry;
 
     OrderReceipt orderReceipt;
+
+    @Steps(shared = true)
+    ProductCatalog productCatalog;
 
     @When("^(?:.*) (?:orders|has ordered) an? (.*)$")
     public void sheOrdersA(String order) throws Throwable {
@@ -59,5 +63,10 @@ public class OrderACoffeeStepDefinitions {
         Receipt expectedReceipt = expectedReceipts.get(0);
 
         assertThat(receipt).isEqualToIgnoringNullFields(expectedReceipt);
+    }
+
+    @And("^the following prices:$")
+    public void theFollowingPrices(List<ProductPrice> productPrices) throws Throwable {
+        productCatalog.addProductsWithPrices(productPrices);
     }
 }
